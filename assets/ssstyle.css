@@ -9,6 +9,8 @@ body {
     font-family: Helvetica, Arial, sans-serif;
     font-size: 20px;
     color: #333f44;
+      text-align: justify;
+  text-justify: inter-word;
 }
 
 button
@@ -155,11 +157,11 @@ a:visited:hover {
 .create-map-style {
     width:70%;
     font-size: 15px;
+    position: relative;
     left: 50%;
     -ms-transform: translateX(-50%);
     transform: translateX(-50%);
-    position: absolute;
-    margin-top: 15%;
+    height: auto;
 }
 
 .create-map-style-slider {
@@ -185,8 +187,29 @@ a:visited:hover {
     padding: 10px;
 }
 
+.container-create-map {
+
+
+
+    position: relative;
+    display: inline-block;
+    width: 90%;
+    height: 60%;
+    left: 50%;
+    -ms-transform: translateX(-50%);
+    transform: translateX(-50%);
+    align-items: center; /* puts text at the bottom the card vertically  */
+    bottom: 5%;
+    margin: 2px;
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 20px;
+    padding: 10px;
+
+}
 .text-maker {
     margin: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
 }
 .container-print-map {
     position: relative;

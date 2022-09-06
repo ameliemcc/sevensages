@@ -222,7 +222,7 @@ def make_maps(n, data):
     else:
         return html.Div([
             html.Div(
-                dcc.Graph(id='graph-with-slider-map', config=config_map)),
+                dcc.Graph(id='graph-with-slider-map', config=config_map, className='create-map-style')),
             html.Div(dcc.Slider(
                 min=15,
                 max=17,
@@ -236,7 +236,7 @@ def make_maps(n, data):
                        17: {'label': '17th century', 'style': {'color': '#333f44', 'font-size':'20px'}},
                        }
             )),
-        ]),
+        ], className='container-create-map'),
 
 
 
