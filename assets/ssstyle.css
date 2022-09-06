@@ -167,7 +167,10 @@ a:visited:hover {
 .create-map-style-slider {
     position: relative;
     margin-bottom: 5px;
-    right: 10px;
+     left: 50%;
+    -ms-transform: translateX(-50%);
+    transform: translateX(-50%);
+
     width:70%;
     font-size: 15px;
 }
