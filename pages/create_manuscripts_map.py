@@ -64,6 +64,9 @@ The regions of origin of the manuscripts were deduced according to the language 
 
                 html.Button("Download manuscript information", id="btn_xlsx-man", className='button-2'),
                 dcc.Download(id="download-dataframe-xlsx-manuscripts"),
+
+                html.A(html.Button("Upload Excel sheet and create your own manuscript visualisations", id="btn_manu"),
+                       href='/mansgraphmaker'),
 ],  className='buttons_style')
 
         ], className='graph_container')

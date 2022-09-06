@@ -16,25 +16,26 @@ layout = html.Div([ # this code section taken from Dash docs https://dash.plotly
     dcc.Upload(
         id='upload-data',
         children=html.Div([
-            'Drag and Drop or ',
-            html.A('Select Files')
+            'Drag and drop or ',
+            html.A('select Excel spreadsheet')
         ]),
-        style={
-            'width': '100%',
-            'height': '60px',
-            'lineHeight': '60px',
-            'borderWidth': '1px',
-            'borderStyle': 'dashed',
-            'borderRadius': '5px',
-            'textAlign': 'center',
-            'margin': '10px'
-        },
         # Allow multiple files to be uploaded
-        multiple=True
+        multiple=True,
+        className='upload-button'
     ),
+    html.Div([
+        'Download the manuscripts data file, modify it according to your needs, making no changes in column titles and '
+        'completing the information for each column before saving it and uploading it above. '
+    ], className='text-maker'),
     # output graph
-    html.Div(id='output-div'),
-    html.Div(id='output-datatable'),
+    #future
+    html.Div([
+        html.Div(id='output-datatable-m'),
+        html.Div(id='output-div-m-map'),
+        html.Div([
+            html.Div(id='output-div-m')], className='container-man-graph')
+    ]),
+
 ])
 
 
@@ -75,6 +76,62 @@ def parse_contents(contents, filename, date):
             manuscripts_all_graph['new_mean'] = (manuscripts_all_graph['date_start'] + manuscripts_all_graph[
                 'date_end']) / 2
 
+            # for the map
+            # make a copy of the full dataframe, just in case we need it again
+            manuscripts_all_map = df
+
+            # replace empty date spaces with nan
+            manuscripts_all_map['date_start'].replace(' ', np.nan, inplace=True)
+            manuscripts_all_map['date_end'].replace(' ', np.nan, inplace=True)
+            manuscripts_all_map['iso-3'].replace(' ', np.nan, inplace=True)
+
+            # remove whitespaces where necessary
+            manuscripts_all_map['iso-3'].str.strip()
+
+            # drop rows which don't have a value for date_start
+            manuscripts_all_map.dropna(subset=['date_start'], inplace=True)
+
+            manuscripts_all_map.dropna(subset=['iso-3'], inplace=True)
+
+            # if no value for date_end, give it the same as date_start
+            manuscripts_all_map['date_end'] = pd.to_numeric(manuscripts_all_map['date_end']).fillna(
+                manuscripts_all_map['date_start']).astype(float)
+
+            # calculate a date mean
+            manuscripts_all_map['new_mean'] = (manuscripts_all_map['date_start'] + manuscripts_all_map['date_end']) / 2
+
+            # deduce the century of production of the print
+            rx = r'^(\d\d)'
+            manuscripts_all_map['date_mean_str'] = manuscripts_all_map['new_mean'].astype(str)
+            manuscripts_all_map['cent'] = manuscripts_all_map['date_mean_str'].str.extract(rx)
+            manuscripts_all_map['cent'] = pd.to_numeric(manuscripts_all_map['cent']).astype(float) + 1
+
+            # make a new dataframe in which the towns are counted by century
+            df_manuscripts = (manuscripts_all_map['iso-3'].groupby(manuscripts_all_map['cent'])
+                              .value_counts()
+                              .reset_index(name='count'))
+
+            df_manuscripts['language'] = manuscripts_all_map['language']
+
+            df_manuscripts['cent'] = pd.to_numeric(df_manuscripts['cent']).astype(float)
+
+            df_manuscripts = df_manuscripts.reset_index()
+
+            def check(cent, label):
+                if not df_manuscripts[
+                    (df_manuscripts['cent'] == cent) & (df_manuscripts['iso-3'] == label)].index.tolist():
+                    df_manuscripts.loc[len(df_manuscripts.index)] = [len(df_manuscripts.index), cent, label, 0, 'lang']
+                else:
+                    pass
+
+            for x in range(13, 19):
+                check(x, 'ITA')
+                check(x, 'FRA')
+                check(x, 'ESP')
+                check(x, 'GBR')
+                check(x, 'DEU')
+
+
 
 
 
@@ -88,10 +145,12 @@ def parse_contents(contents, filename, date):
     return html.Div([
         html.Button(id="submit-button", children="Create Graph", className='button-2'),
         dcc.Store(id='stored-data', data=manuscripts_all_graph.to_dict('records')),
-    ])
+        html.Button(id="submit-button-map", children="Create map", className='button-4'),
+        dcc.Store(id='stored-data-map', data=df_manuscripts.to_dict('records')),
+    ], className='buttons-center')
 
 
-@callback(Output('output-datatable', 'children'),
+@callback(Output('output-datatable-m', 'children'),
               Input('upload-data', 'contents'),
               State('upload-data', 'filename'),
               State('upload-data', 'last_modified'))
@@ -103,7 +162,7 @@ def update_output(list_of_contents, list_of_names, list_of_dates):
         return children
 
 
-@callback(Output('output-div', 'children'),
+@callback(Output('output-div-m', 'children'),
               Input('submit-button','n_clicks'),
               State('stored-data','data'))
             #  State('xaxis-data','value'),

@@ -57,8 +57,7 @@ layout =(html.Div([
         html.A(id='anchor-5'),
         html.Div([
            # html.A(html.Button("Upload Excel sheet and create your own print visualisations", id="btn_print"), href='/printsgraphmaker'),
-            html.A(html.Button("Upload Excel sheet and create your own manuscript visualisations", id="btn_manu"),
-                   href='/mansgraphmaker'),
+
         ], className='card'),
         #graph_maker.layout
 
