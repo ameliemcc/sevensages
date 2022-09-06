@@ -4,7 +4,7 @@ import base64
 import io
 import dash
 from dash.dependencies import Input, Output, State
-
+from pages.create_prints_map import config_map
 import plotly.express as px
 import numpy as np
 import pandas as pd
@@ -33,7 +33,7 @@ layout = html.Div([ # this code section taken from Dash docs https://dash.plotly
         html.Div(id='output-datatable-m'),
         html.Div(id='output-div-m-map'),
         html.Div([
-            html.Div(id='output-div-m')], className='container-man-graph')
+            html.Div(id='output-div-m')], className='container-print-graph')
     ]),
 
 ])
@@ -132,10 +132,6 @@ def parse_contents(contents, filename, date):
                 check(x, 'DEU')
 
 
-
-
-
-
     except Exception as e:
         print(e)
         return html.Div([
@@ -161,13 +157,10 @@ def update_output(list_of_contents, list_of_names, list_of_dates):
             zip(list_of_contents, list_of_names, list_of_dates)]
         return children
 
-
+# graph maker
 @callback(Output('output-div-m', 'children'),
-              Input('submit-button','n_clicks'),
-              State('stored-data','data'))
-            #  State('xaxis-data','value'),
-              #State('yaxis-data', 'value')
-# )
+              Input('submit-button', 'n_clicks'),
+              State('stored-data', 'data'))
 def make_graphs(n, data):
     if n is None:
        return dash.no_update
@@ -195,7 +188,116 @@ def make_graphs(n, data):
                     'Scots': '#335537',
                 },
             )
+        mans_graph_fig.update_layout(
+            clickmode='event+select',
+            dragmode=False,
+            #  title=dict(text = 'Repartiton of languages in The Seven Sages of Rome prints', pad_b = 20, pad_t = 20, yanchor = 'middle', xanchor = 'auto'),
+            autosize=True,
+            paper_bgcolor='#797fa1',
+            font_family="Helvetica",
+            font_size=15,
+            legend=dict(font_size=15, itemclick=False, itemdoubleclick="toggleothers", tracegroupgap=4,
+                        title='Language'),
+            margin_b=20,
+            margin_l=15,
+            margin_r=15,
+            margin_t=10,
+            plot_bgcolor='#797fa1',
+            hoverlabel=dict(bordercolor='rgba(0,0,0,0)', font_color='white', font_family='Helvetica, Arial, sans-serif',
+                            font_size=12),
+            xaxis_title="Date of creation of the manuscript",
+            yaxis_title="Number of existing manuscripts",
+        )
 
         # print(data)
-        return dcc.Graph(figure=mans_graph_fig, config=config, className='graph_style')
+        return dcc.Graph(figure=mans_graph_fig, config=config)
 
+
+# map maker
+
+@callback(Output('output-div-m-map', 'children'),
+              Input('submit-button-map','n_clicks'),
+              State('stored-data-map','data')
+          )
+def make_maps(n, data):
+    if n is None:
+        return dash.no_update
+    else:
+        return html.Div([
+            html.Div(
+                dcc.Graph(id='graph-with-slider-map-m', config=config_map, className='create-map-style')),
+            html.Div(dcc.Slider(
+                min=13,
+                max=18,
+                step=None,
+                verticalHeight=50,
+                value=13,
+                id='year-slider',
+                className='slider',
+                marks={
+                    13: {'label': '13th century', 'style': {'color': '#333f44', 'font-size': '20px'}},
+                    14: {'label': '14th century', 'style': {'color': '#333f44', 'font-size': '20px'}},
+                    15: {'label': '15th century', 'style': {'color': '#333f44', 'font-size': '20px'}},
+                    16: {'label': '16th century', 'style': {'color': '#333f44', 'font-size': '20px'}},
+                    17: {'label': '17th century', 'style': {'color': '#333f44', 'font-size': '20px'}},
+                    18: {'label': '18th century', 'style': {'color': '#333f44', 'font-size': '20px'}}
+                },
+            ), className='create-map-style-slider-m'),
+        ], className='container-create-map'),
+
+
+
+@callback(
+    Output('graph-with-slider-map-m', 'figure'),
+    Input('year-slider', 'value'),
+    State('stored-data-map', 'data'))
+def update_figure(selected_year, data):
+    #filtered_df = (data.loc[data['century'] == selected_year])
+    pd_df = pd.DataFrame.from_dict(data)
+    filtered_df = (pd_df.loc[pd_df['cent'] == selected_year])
+
+    # create a scale column for the bubbles
+    all_data_diffq = (filtered_df["count"].max() - filtered_df["count"].min()) / 27
+    filtered_df["scale"] = (filtered_df["count"] - filtered_df["count"].min()) / all_data_diffq
+
+    fig = px.scatter_geo(
+        filtered_df,
+        locations=filtered_df['iso-3'],
+        #size=filtered_df['count'],
+        size=filtered_df["scale"],
+        size_max=max((filtered_df['count'])*2),
+        projection='equirectangular',
+        hover_data={'scale': False, 'iso-3': False, 'count': True},
+        color_discrete_sequence = ['#a1797f'],
+
+     )
+
+    fig.update_traces(textposition="top center",
+                      mode='markers+text',
+                      textfont_size=25)
+
+    lat_foc = 46.20222
+    lon_foc = 6.14569
+
+    fig.update_layout(legend_title_text=' ',
+                      margin=dict(l=0, r=0, t=0, b=0),
+                      autosize=True,
+                      paper_bgcolor="#c4a599",
+                      font_family='Helvetica, Arial, sans-serif',
+                      hoverlabel=dict(bordercolor='rgba(0,0,0,0)', font_color='white',
+                                      font_family='Helvetica, Arial, sans-serif', font_size=12),
+                      transition_duration=500,
+                      geo=dict(
+                          projection_scale=7,  # this is kind of like zoom
+                          center=dict(lat=lat_foc, lon=lon_foc),  # this will center on the point
+                      ))
+
+    fig.update_geos(
+        showcoastlines=True,
+        showcountries=False,
+        showocean=True,
+        landcolor="#abb5c5",
+        oceancolor="#797fa1"
+    )
+
+    return fig

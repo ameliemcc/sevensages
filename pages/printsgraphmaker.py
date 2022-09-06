@@ -156,9 +156,6 @@ def update_output(list_of_contents, list_of_names, list_of_dates):
               Input('submit-button','n_clicks'),
               State('stored-data','data')
           )
-            #  State('xaxis-data','valuƒhoe'),
-              #State('yaxis-data', 'value')
-# )
 def make_graphs(n, data):
     if n is None:
        return dash.no_update
@@ -210,11 +207,9 @@ def make_graphs(n, data):
 # map maker
 
 
-
-
 @callback(Output('output-div-p-map', 'children'),
-              Input('submit-button-map','n_clicks'),
-              State('stored-data-map','data')
+              Input('submit-button-map', 'n_clicks'),
+              State('stored-data-map', 'data')
           )
 def make_maps(n, data):
     if n is None:
@@ -276,7 +271,7 @@ def update_figure(selected_year, data):
                       margin=dict(l=0, r=0, t=0, b=0),
                       autosize=True,
                       font_family='Helvetica, Arial, sans-serif',
-                      paper_bgcolor="#c4a599",
+                      paper_bgcolor="#797fa1",
                       hoverlabel=dict(bordercolor='rgba(0,0,0,0)', font_color='white',
                                       font_family='Helvetica, Arial, sans-serif', font_size=12),
                       transition_duration=500,
