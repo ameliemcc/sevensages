@@ -235,7 +235,7 @@ def make_maps(n, data):
                        16: {'label': '16th century', 'style': {'color': '#333f44', 'font-size':'20px'}},
                        17: {'label': '17th century', 'style': {'color': '#333f44', 'font-size':'20px'}},
                        }
-            )),
+            ), className='create-map-style-slider'),
         ], className='container-create-map'),
 
 
