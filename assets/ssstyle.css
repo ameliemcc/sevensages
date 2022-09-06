@@ -191,9 +191,6 @@ a:visited:hover {
 }
 
 .container-create-map {
-
-
-
     position: relative;
     display: inline-block;
     width: 90%;
@@ -203,7 +200,7 @@ a:visited:hover {
     transform: translateX(-50%);
     align-items: center; /* puts text at the bottom the card vertically  */
     bottom: 5%;
-    margin: 2px;
+    margin: 5px;
     font-family: Helvetica, Arial, sans-serif;
     font-size: 20px;
     padding: 10px;
