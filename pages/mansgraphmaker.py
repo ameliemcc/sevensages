@@ -143,7 +143,7 @@ def parse_contents(contents, filename, date):
         ])
 
     return html.Div([
-        html.Button(id="submit-button", children="Create Graph", className='button-2'),
+        html.Button(id="submit-button", children="Create Graph", className='button-4'),
         dcc.Store(id='stored-data', data=manuscripts_all_graph.to_dict('records')),
         html.Button(id="submit-button-map", children="Create map", className='button-4'),
         dcc.Store(id='stored-data-map', data=df_manuscripts.to_dict('records')),
