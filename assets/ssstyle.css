@@ -164,14 +164,12 @@ a:visited:hover {
 
 .create-map-style-slider {
     position: absolute;
-
-    margin-top: 65%;
     left: 50%;
     -ms-transform: translateX(-50%);
     transform: translateX(-50%);
     width:70%;
     font-size: 15px;
-
+    bottom: 6%;
 }
 
 .button-2 {
@@ -242,12 +240,13 @@ a:visited:hover {
 }
 
 .upload-button {
-    width: 50%;
+    width: 40%;
     height: 50px;
     text-align: center;
     background-color: #7fa179;
     font-size: 20px;
     padding: 3px;
+    margin-top: 10%;
     border-radius: 5px;
     color: #333f44;
     font-family: Helvetica, Arial, sans-serif;
