@@ -25,6 +25,10 @@ layout = html.Div([ # this code section taken from Dash docs https://dash.plotly
         multiple=True,
         className='upload-button'
     ),
+    html.Div([
+        'Download the prints data file, modify it according to your needs, making no changes in column titles and '
+        'completing the information for each column before saving it and uploading it above. '
+    ], className='text-maker'),
     # output graph
     html.Div([
         html.Div(id='output-datatable-p'),
