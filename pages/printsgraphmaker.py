@@ -26,7 +26,7 @@ layout = html.Div([ # this code section taken from Dash docs https://dash.plotly
         className='upload-button'
     ),
     # output graph
-    html.Div(id='output-div-p'),
+    html.Div(id='output-div-p', className='container-print-graph'),
     html.Div(id='output-div-p-map'),
     html.Div(id='output-datatable-p'),
 ])
@@ -129,7 +129,6 @@ def parse_contents(contents, filename, date):
         dcc.Store(id='stored-data', data=prints_all_map.to_dict('records')),
         html.Button(id="submit-button-map", children="Create map", className='button-4'),
         dcc.Store(id='stored-data-map', data=df_prints.to_dict('records')),
-
     ], className='buttons-center')
 
 
@@ -214,7 +213,7 @@ def make_maps(n, data):
                        17: {'label': '17th century', 'style': {'color': '#333f44', 'font-size':'20px'}},
                        }
             ), className='create-map-style-slider'),
-]),
+], className='container-print-map'),
 
 
 
