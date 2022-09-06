@@ -26,9 +26,12 @@ layout = html.Div([ # this code section taken from Dash docs https://dash.plotly
         className='upload-button'
     ),
     # output graph
-    html.Div(id='output-div-p', className='container-print-graph'),
-    html.Div(id='output-div-p-map'),
-    html.Div(id='output-datatable-p'),
+    html.Div([
+        html.Div(id='output-datatable-p'),
+        html.Div(id='output-div-p-map'),
+        html.Div([
+            html.Div(id='output-div-p')], className='container-print-graph')
+    ]),
 ])
 
 
@@ -178,7 +181,27 @@ def make_graphs(n, data):
             labels={"language": "Language", "date_mean": "Dates", "count": "Count"}
         )
         # print(data)
-        return dcc.Graph(figure=print_graph_fig, config=config, className='graph_style')
+        print_graph_fig.update_layout(
+            clickmode='event+select',
+            dragmode=False,
+            autosize=True,
+            paper_bgcolor="#797fa1",
+            font_family="Helvetica",
+            font_size=15,
+            legend=dict(font_size=15, itemclick=False, itemdoubleclick="toggleothers", tracegroupgap=4,
+                        title='Language',
+                        ),
+            margin_b=20,
+            margin_l=15,
+            margin_r=15,
+            margin_t=10,
+            plot_bgcolor='#797fa1',
+            hoverlabel=dict(bordercolor='rgba(0,0,0,0)', font_color='white', font_family='Helvetica, Arial, sans-serif',
+                            font_size=12),
+            xaxis_title="Date of edition of the print",
+            yaxis_title="Number of existing prints",
+        )
+        return dcc.Graph(figure=print_graph_fig, config=config)
 
 # map maker
 
@@ -195,25 +218,21 @@ def make_maps(n, data):
     else:
         return html.Div([
             html.Div(
-                dcc.Graph(id='graph-with-slider-map', config=config_map),
-                className='create-map-style'),
-            html.Div(
-            dcc.Slider(
-                min = 15,
-                max = 17,
-              #int(data['century']).min(),
-               # int(data['century']).max(),
+                dcc.Graph(id='graph-with-slider-map', config=config_map)),
+            html.Div(dcc.Slider(
+                min=15,
+                max=17,
                 step=None,
                 verticalHeight=50,
                 value=15,
                 id='year-slider',
-                className = 'slider',
+                className='slider',
                 marks={15: {'label': '15th century', 'style': {'color': '#333f44', 'font-size':'20px'}},
                        16: {'label': '16th century', 'style': {'color': '#333f44', 'font-size':'20px'}},
                        17: {'label': '17th century', 'style': {'color': '#333f44', 'font-size':'20px'}},
                        }
-            ), className='create-map-style-slider'),
-], className='container-print-map'),
+            )),
+        ]),
 
 
 

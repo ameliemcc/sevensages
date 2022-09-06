@@ -163,16 +163,26 @@ a:visited:hover {
 }
 
 .create-map-style-slider {
-    position: absolute;
+    position: relative;
+    margin-bottom: 3px;
+    right: 10px;
+    width:70%;
+    font-size: 15px;
+}
+.container-print-graph {
+    background-color: #797fa1;
+    display: inline-block;
+    align-items: center; /* puts text at the bottom the card vertically  */
+    position: relative;
     left: 50%;
     -ms-transform: translateX(-50%);
     transform: translateX(-50%);
-    width:70%;
-    font-size: 15px;
-    bottom: 6%;
-}
-.container-print-graph {
-
+    bottom: 3%;
+    margin: 2px;
+    overflow: hidden;
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 20px;
+    padding: 10px;
 }
 
 .container-print-map {
@@ -182,6 +192,11 @@ a:visited:hover {
     -ms-transform: translateX(-50%);
     transform: translateX(-50%);
     width:70%;
+    align-items: center; /* puts text at the bottom the card vertically  */
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 20px;
+    padding: 10px;
+
 }
 
 .button-2 {
@@ -258,7 +273,7 @@ a:visited:hover {
     background-color: #7fa179;
     font-size: 20px;
     padding: 3px;
-    margin-top: 10%;
+    margin-top: 5%;
     border-radius: 5px;
     color: #333f44;
     font-family: Helvetica, Arial, sans-serif;
