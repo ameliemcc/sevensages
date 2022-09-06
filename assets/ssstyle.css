@@ -172,12 +172,7 @@ a:visited:hover {
     bottom: 6%;
 }
 .container-print-graph {
-    position: relative;
-    display: inline-block;
-    left: 50%;
-    -ms-transform: translateX(-50%);
-    transform: translateX(-50%);
-    width:70%;
+
 }
 
 .container-print-map {
