@@ -180,6 +180,7 @@ a:visited:hover {
     transform: translateX(-50%);
     position: absolute;
     margin-top: 15%;
+    margin-bottom: 15px;
     background-color: #7fa179;
     width: 40%;
     text-align: center;
@@ -201,7 +202,6 @@ a:visited:hover {
     -ms-transform: translateX(-50%);
     transform: translateX(-50%);
     position: relative;
-    margin-top: 35%;
     background-color: #7fa179;
     width: 40%;
     text-align: center;
