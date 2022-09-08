@@ -2,7 +2,7 @@ import pandas as pd
 import numpy as np
 
 # Download the csv file from GitHub account
-manuscripts_url = "https://raw.githubusercontent.com/ameliemcc/sevensagesapp/master/complete_manuscripts.csv"
+manuscripts_url = "https://raw.githubusercontent.com/ameliemcc/sevensages/main/datacsvfiles/complete_manuscripts.csv"
 
 manuscripts_all = pd.read_csv(manuscripts_url, sep=';', skipinitialspace = True)
 

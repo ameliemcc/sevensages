@@ -3,7 +3,7 @@ import numpy as np
 
 # Download the csv file from GitHub account
 
-prints_url = "https://raw.githubusercontent.com/ameliemcc/sevensagesapp/master/complete_prints_csv.csv"
+prints_url = "https://raw.githubusercontent.com/ameliemcc/sevensages/main/datacsvfiles/complete_prints.csv"
 prints_all = pd.read_csv(prints_url, sep=';', skipinitialspace = True)
 # make a copy of the full dataframe, just in case we need it again
 prints_all_map = prints_all
