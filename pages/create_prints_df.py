@@ -47,7 +47,8 @@ df_prints = (prints_all_map['print_town'].groupby(prints_all_map['century'])
 
 df_prints = df_prints.set_index('print_town', drop = False)
 df_prints.index.names = ['index']
-
+print('df prints')
+print(df_prints)
 # latitude column
 df_prints = df_prints.assign(lati=0)
 df_prints = df_prints.assign(longi=0)

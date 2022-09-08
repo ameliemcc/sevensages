@@ -31,8 +31,10 @@ layout =html.Div([
     html.Div([
             html.Div(
                 dcc.Graph(id='graph-with-slider-man', config=config_map),
+
                 className='map_style'),
             html.Div(
+
             dcc.Slider(
                 df_manuscripts['cent'].min(),
                 df_manuscripts['cent'].max(),
@@ -65,7 +67,7 @@ The regions of origin of the manuscripts were deduced according to the language 
                 html.Button("Download manuscript information", id="btn_xlsx-man", className='button-2'),
                 dcc.Download(id="download-dataframe-xlsx-manuscripts"),
 
-                html.A(html.Button("Make your own visualisations of print data", id="btn_manu", className='button-3'),
+                html.A(html.Button("Make your own visualisations of manuscript data", id="btn_manu", className='button-3'),
                        href='/mansgraphmaker'),
 ],  className='buttons_style')
 
@@ -86,19 +88,20 @@ def update_figure(selected_year):
 
     fig = px.scatter_geo(
         filtered_df,
-        locations=filtered_df['iso-3'],
-        #size=filtered_df['count'],
+        lat=filtered_df['lati'],
+        lon=filtered_df['longi'],
         size=filtered_df["scale"],
         size_max=max((filtered_df['count'])*2),
         projection='equirectangular',
-        hover_data={'scale': False, 'iso-3': False, 'count': True},
+        hover_data={'scale': False, 'count': True},
         color_discrete_sequence = ['#a1797f'],
-
+        labels={"count": "Count"},
+        text=filtered_df['language']
      )
 
     fig.update_traces(textposition="top center",
                       mode='markers+text',
-                      textfont_size=25)
+                      textfont_size=15)
 
     lat_foc = 46.20222
     lon_foc = 6.14569

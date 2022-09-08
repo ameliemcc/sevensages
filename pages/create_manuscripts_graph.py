@@ -177,7 +177,6 @@ def update_table(clickData):
 fig_mans_graph.update_layout(
     clickmode='event+select',
     dragmode = False,
-  #  title=dict(text = 'Repartiton of languages in The Seven Sages of Rome prints', pad_b = 20, pad_t = 20, yanchor = 'middle', xanchor = 'auto'),
     autosize=True,
     paper_bgcolor='#797fa1',
     font_family="Helvetica",
