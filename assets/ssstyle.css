@@ -273,21 +273,26 @@ a:visited:hover {
 }
 
 .btn-group .button {
-      background-color: #7fa179;
-      color: #333f44;
-      border-radius: 5px;
-  border: none;
+    background-color: #7fa179;
+    color: #333f44;
+    border-radius: 5px;
+    border: none;
     font-family: Helvetica, Arial, sans-serif;
+    padding: 5px 5px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    float: left;
+    margin : 2px;
+    height: auto;
+    width : 160px;
 
-  padding: 5px 5px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 20px;
-  float: left;
-  margin : 2px;
-    height: 50px;
-    width : 80px
+  position: absolute;
+
+  left: 50%;
+  -ms-transform: translate(-50%);
+   transform: translate(-50%);
 }
 
 buttons-next{
