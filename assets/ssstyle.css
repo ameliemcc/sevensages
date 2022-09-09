@@ -273,8 +273,6 @@ a:visited:hover {
 }
 
 .btn-group .button {
-
-
     background-color: #7fa179;
     color: #333f44;
     border-radius: 5px;
@@ -285,12 +283,18 @@ a:visited:hover {
     text-decoration: none;
     /*display: inline-block;*/
     font-size: 20px;
-    float: left;
-    margin-right : 20px;
+   /* float: left;
+    margin-right : 20px;*/
     height: auto;
-    width : 140px;
-    display: flex; justify-content: center; align-items: center;
+    /*width : 130px;*/
+    position: absolute;
+  left: 50%;
+  -ms-transform: translate(-50%);
+   transform: translate(-50%);
+}
 
+.left {
+margin-right : 10px
 }
 
 .btn-group .button:hover{

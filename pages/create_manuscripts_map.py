@@ -69,7 +69,7 @@ html.H2('Manuscripts'),
                 html.Div([
                     html.Button("Download manuscript information", id="btn_xlsx-man", className='button'),
                     dcc.Download(id="download-dataframe-xlsx-manuscripts"),
-                    html.A(html.Button("Make your own visualisations of manuscript data", id="btn_manu",className='button'
+                    html.A(html.Button("Make your own visualisations of manuscript data", id="btn_manu",className='left'
                                       ), href='/mansgraphmaker'),
                 ], className='btn-group'),
 ],  className='buttons_style')
