@@ -85,9 +85,8 @@ a:visited:hover {
 }
 
 .map_text_style {
-    top : 5%;
+    top : 0%;
     align-items: center; /* puts text in the middle of the card vertically  */
-    display: flex; /* if removed; no middle text  */
     justify-content: center; /* puts text in the middle of the card horizontally  */
     position: relative;
     margin: auto;  /* card in the middle  */
