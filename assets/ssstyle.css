@@ -287,7 +287,6 @@ a:visited:hover {
     margin : 2px;
     height: auto;
     width : 140px;
-
 }
 
 .btn-group .button:hover{
@@ -295,10 +294,6 @@ a:visited:hover {
     color:#7fa179;
 }
 
-buttons-next{
-   display:inline-block;
-   margin-right:5px;
-}
 
 .button-3:hover {
     background-color : #333f44 !important;
