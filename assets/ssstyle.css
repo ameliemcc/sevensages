@@ -286,7 +286,7 @@ a:visited:hover {
     /*display: inline-block;*/
     font-size: 20px;
     float: left;
-    /*margin : 5px;*/
+    margin : 20px;
     height: auto;
     width : 140px;
     display: flex; justify-content: center; align-items: center;
