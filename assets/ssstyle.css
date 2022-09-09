@@ -286,10 +286,10 @@ a:visited:hover {
     /*display: inline-block;*/
     font-size: 20px;
     float: left;
-    margin : 10%;
+    /*margin : 5px;*/
     height: auto;
     width : 140px;
-     display: flex; justify-content: center; align-items: center;
+    display: flex; justify-content: center; align-items: center;
 
 }
 
