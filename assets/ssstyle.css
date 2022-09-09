@@ -273,6 +273,13 @@ a:visited:hover {
 }
 
 .btn-group .button {
+
+     position: absolute;
+
+  left: 50%;
+  -ms-transform: translate(-50%);
+   transform: translate(-50%);
+
     background-color: #7fa179;
     color: #333f44;
     border-radius: 5px;
