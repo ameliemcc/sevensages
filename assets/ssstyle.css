@@ -271,6 +271,9 @@ a:visited:hover {
     font-family: Helvetica, Arial, sans-serif;
     border: hidden;
 }
+button-small{
+    width: 20px;
+}
 
 buttons-next{
    float:left;
