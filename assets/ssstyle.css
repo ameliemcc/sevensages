@@ -290,6 +290,11 @@ a:visited:hover {
 
 }
 
+.btn-group .button:hover{
+        background-color : #333f44 !important;
+    color:#7fa179;
+}
+
 buttons-next{
    display:inline-block;
    margin-right:5px;
