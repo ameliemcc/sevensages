@@ -288,11 +288,6 @@ a:visited:hover {
     height: auto;
     width : 160px;
 
-  position: absolute;
-
-  left: 50%;
-  -ms-transform: translate(-50%);
-   transform: translate(-50%);
 }
 
 buttons-next{
