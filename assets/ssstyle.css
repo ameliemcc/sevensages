@@ -287,20 +287,19 @@ a:visited:hover {
     margin-right : 20px;*/
     height: auto;
     /*width : 130px;*/
-    position: absolute;
-  left: 50%;
-  -ms-transform: translate(-50%);
-   transform: translate(-50%);
+
+
 }
 
 #btn_xlsx-man {
-    margin-left : 5%;
-    width : 60px
+    margin-left : 5px;
+    width : 40%
 }
 
 #btn_manu {
-        margin-right : 5%;
-    width : 60px
+    margin-right: 5px;
+    width : 40%;
+    float: right;
 }
 
 
