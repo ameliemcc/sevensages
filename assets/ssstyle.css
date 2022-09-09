@@ -9,8 +9,8 @@ body {
     font-family: Helvetica, Arial, sans-serif;
     font-size: 20px;
     color: #333f44;
-      text-align: justify;
-  text-justify: inter-word;
+    text-align: justify;
+    text-justify: inter-word;
 }
 
 button
@@ -23,8 +23,7 @@ button
     height : 100vh;
     width: 100vw;
     overflow-y : scroll;
-    background-color :   #797fa1;
-
+    background-color : #797fa1;
 }
 
    /* whole page */
@@ -40,20 +39,21 @@ button
     top: 50%;
     transform: translate(-50%, -50%);
 }
+
 a:link {
-            color: #335537;
-            text-decoration: none;
-        }
+    color: #335537;
+    text-decoration: none;
+    }
 
         /* On placing mouse over the link */
 a:hover {
- color: #7fa179;
-            text-decoration: none;
-        }
+    color: #7fa179;
+    text-decoration: none;
+    }
 
 a:visited {
-            color: #335537;
-      text-decoration: none;
+     color: #335537;
+    text-decoration: none;
 }
 a:visited:hover {
      color: #7fa179;
@@ -375,13 +375,14 @@ a:visited:hover {
 
 .buttons_style {
     /*display: flex;  if removed; no middle text  */
-    height:90%;
+    height: 100%;
     background-color: #c4a599;
     position: absolute;
     /*margin: auto;*/
     left : 3%;
     top: 0%;
     width: 25%;
+    display: block;
 
     /*
     position: absolute;
