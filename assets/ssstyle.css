@@ -272,6 +272,11 @@ a:visited:hover {
     border: hidden;
 }
 
+buttons-next{
+   float:left;
+   margin-right:5px;
+}
+
 .button-3:hover {
     background-color : #333f44 !important;
     color:#7fa179;
