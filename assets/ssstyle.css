@@ -286,9 +286,10 @@ a:visited:hover {
     display: inline-block;
     font-size: 20px;
     float: left;
-    margin : 10px;
+    margin : auto;
     height: auto;
-    width : 110px;
+    width : 140px;
+
 }
 
 .btn-group .button:hover{
