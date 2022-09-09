@@ -118,7 +118,6 @@ def parse_contents(contents, filename, date):
             df_manuscripts = df_manuscripts.set_index('language', drop=False)
             df_manuscripts.index.names = ['index']
            # df_manuscripts['cent'] = pd.to_numeric(df_manuscripts['cent']).astype(float)
-            print(df_manuscripts)
             # latitude column
             df_manuscripts = df_manuscripts.assign(lati=0)
             df_manuscripts = df_manuscripts.assign(longi=0)
@@ -150,9 +149,6 @@ def parse_contents(contents, filename, date):
 
             df_manuscripts = df_manuscripts.reset_index()
 
-            print('before:')
-            print(df_manuscripts)
-
             def check(cent, language):
                 if not df_manuscripts[(df_manuscripts['cent'] == cent) & (df_manuscripts['language'] == language)].index.tolist():
                     df_manuscripts.loc[len(df_manuscripts.index)] = [len(df_manuscripts.index), cent, language, 0, 0, 0]
@@ -170,8 +166,7 @@ def parse_contents(contents, filename, date):
                 check(x, 'Italian')
                 check(x, 'Scots')
 
-            print('after:')
-            print(df_manuscripts)
+
 
 
 

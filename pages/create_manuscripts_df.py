@@ -47,7 +47,7 @@ df_manuscripts = (manuscripts_all_map.groupby(['cent', 'language'])
 df_manuscripts = df_manuscripts.set_index('language', drop=False)
 df_manuscripts.index.names = ['index']
 # df_manuscripts['cent'] = pd.to_numeric(df_manuscripts['cent']).astype(float)
-print(df_manuscripts)
+
 # latitude column
 df_manuscripts = df_manuscripts.assign(lati=0)
 df_manuscripts = df_manuscripts.assign(longi=0)
@@ -78,10 +78,6 @@ df_manuscripts['cent'] = pd.to_numeric(df_manuscripts['cent']).astype(float)
 
 df_manuscripts = df_manuscripts.reset_index()
 
-print('before:')
-print(df_manuscripts)
-
-
 def check(cent, language):
         if not df_manuscripts[
                 (df_manuscripts['cent'] == cent) & (df_manuscripts['language'] == language)].index.tolist():
@@ -101,5 +97,3 @@ for x in range(13, 19):
         check(x, 'Italian')
         check(x, 'Scots')
 
-print('after:')
-print(df_manuscripts)
