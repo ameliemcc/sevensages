@@ -374,6 +374,16 @@ a:visited:hover {
 }
 
 .buttons_style {
+    /*display: flex;  if removed; no middle text  */
+    height:90%;
+    background-color: #c4a599;
+    position: absolute;
+    /*margin: auto;*/
+    left : 3%;
+    top: 0%;
+    width: 25%;
+
+    /*
     position: absolute;
     left: 3%;
     width: 25%;
@@ -381,7 +391,7 @@ a:visited:hover {
     top: 10%;
     font-size: 20px;
     text-align: justify;
-    text-justify: inter-character;
+    text-justify: inter-character; */
 }
 
 .graph_text_style {
