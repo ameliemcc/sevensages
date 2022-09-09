@@ -293,9 +293,16 @@ a:visited:hover {
    transform: translate(-50%);
 }
 
-.left {
-margin-right : 10px
+#btn_xlsx-man {
+    margin-right : 10px;
+    width : 60px
 }
+
+#btn_manu {
+        margin-left : 10px;
+    width : 60px
+}
+
 
 .btn-group .button:hover{
         background-color : #333f44 !important;

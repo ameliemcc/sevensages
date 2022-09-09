@@ -56,12 +56,7 @@ layout =html.Div([
                 html.Div([
 html.H2('Manuscripts'),
                 dcc.Markdown("""
-                This map illustrates the location in which manuscripts of *The Seven Sages of Rome* are inferred to have 
-                been produced per century, as well as their number.\n
-                The regions of origin of the manuscripts were deduced according to the language in which the manuscript 
-                was written. Note that this method is not failsafe as manuscripts written in some languages (e.g. 
-                French) may have been produced or used at locations now lying beyond their modern borders. Latin copies 
-                of the *Seven Sages* might potentially have been written or used anywhere within the medieval West. 
+                This
 """
                              )], className='map_text_style'),
 
@@ -69,7 +64,7 @@ html.H2('Manuscripts'),
                 html.Div([
                     html.Button("Download manuscript information", id="btn_xlsx-man", className='button'),
                     dcc.Download(id="download-dataframe-xlsx-manuscripts"),
-                    html.A(html.Button("Make your own visualisations of manuscript data", id="btn_manu",className='left'
+                    html.A(html.Button("Make your own visualisations of manuscript data", id="btn_manu",className='button'
                                       ), href='/mansgraphmaker'),
                 ], className='btn-group'),
 ],  className='buttons_style')
