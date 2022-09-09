@@ -31,10 +31,8 @@ layout =html.Div([
     html.Div([
             html.Div(
                 dcc.Graph(id='graph-with-slider-man', config=config_map),
-
                 className='map_style'),
             html.Div(
-
             dcc.Slider(
                 df_manuscripts['cent'].min(),
                 df_manuscripts['cent'].max(),
