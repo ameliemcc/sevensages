@@ -49,11 +49,13 @@ layout = html.Div([
           dcc.Markdown('This map illustrates the towns in which prints of *The Seven Sages of Rome* were produced per'
                        ' century, as well as their number.\n'),
       ], className='map_text_style'),
+
       html.Button("Download print information", id="btn_xlsx", className='button-2'),
       dcc.Download(id="download-dataframe-xlsx"),
       html.A(html.Button("Make your own visualisations of print data", id="btn_print",
                          className='button-3'), href='/printsgraphmaker'),
   ],  className='buttons_style')
+
 
         ], className='graph_container'),
 

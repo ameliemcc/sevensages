@@ -67,12 +67,12 @@ html.H2('Manuscripts'),
                 West. \n 
 """
                              )], className='map_text_style'),
-
-                html.Button("Download manuscript information", id="btn_xlsx-man", className='button-2'),
-                dcc.Download(id="download-dataframe-xlsx-manuscripts"),
-
-                html.A(html.Button("Make your own visualisations of manuscript data", id="btn_manu", className='button-3'),
-                       href='/mansgraphmaker'),
+                html.Div([
+                    html.Button("Download manuscript information", id="btn_xlsx-man", className='button-2'),
+                    dcc.Download(id="download-dataframe-xlsx-manuscripts"),
+                    html.A(html.Button("Make your own visualisations of manuscript data", id="btn_manu",
+                                       className='button-3'), href='/mansgraphmaker'),
+                ]),
 ],  className='buttons_style')
 
         ], className='graph_container')
