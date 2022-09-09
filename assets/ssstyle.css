@@ -283,12 +283,13 @@ a:visited:hover {
     padding: 5px 5px;
     text-align: center;
     text-decoration: none;
-    display: inline-block;
+    /*display: inline-block;*/
     font-size: 20px;
     float: left;
-    margin : auto;
+    margin : 10%;
     height: auto;
     width : 140px;
+     display: flex; justify-content: center; align-items: center;
 
 }
 
