@@ -71,6 +71,7 @@ layout =(html.Div([
                 ## __Bibliographical information__ \n
                 The information presented on this website was gathered from :  \n
                 * Campbell, Killis and University of California Libraries. _The Seven Sages of Rome_. Boston, Ginn and company, 1907.
+                * Huws, Daniel. _Medieval Welsh Manuscripts_. Cardiff, University of Cardiff Press, 2000. 
                 * Runte, Hans Rainer, et al. _The Seven Sages of Rome and the Book of Sindbad : an Analytical Bibliography_. Garland, 1984. (Prints reference)
                 * Runte, Hans Rainer. _Li Ystoire de la male marastre : version M of the Roman des sept sages de Rome : a critical edition with an introd., notes, a glossary, five appendices, and a bibliography_. M. Niemeyer, 1974.
                 * Runte, Hans R., and Laurent Brun. “Les Sept Sages de Rome.” [Arlima - Archives de Littérature Du Moyen Âge](<https://www.arlima.net/qt/sept_sages_de_rome.html>), 12 Nov. 2021.

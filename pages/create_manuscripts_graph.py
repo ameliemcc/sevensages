@@ -72,6 +72,7 @@ fig_mans_graph = px.histogram(
         'Occitan': '#c4a599',
         'Catalan' : '#797fa1',
         'Scots' : '#335537',
+        'Welsh': '#333f44'
         },
     )
 

@@ -165,6 +165,7 @@ def parse_contents(contents, filename, date):
                 check(x, 'English')
                 check(x, 'Italian')
                 check(x, 'Scots')
+                check(x, 'Welsh')
 
 
 
@@ -225,6 +226,7 @@ def make_graphs(n, data):
                     'Occitan': '#c4a599',
                     'Catalan': '#797fa1',
                     'Scots': '#335537',
+                    'Welsh' : '#333f44'
                 },
             )
         mans_graph_fig.update_layout(

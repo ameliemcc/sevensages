@@ -96,4 +96,5 @@ for x in range(13, 19):
         check(x, 'English')
         check(x, 'Italian')
         check(x, 'Scots')
+        check(x, 'Welsh')
 
