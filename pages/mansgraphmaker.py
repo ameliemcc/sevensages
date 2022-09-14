@@ -224,7 +224,7 @@ def make_graphs(n, data):
                     'Latin': '#565f73',
                     'Spanish': '#685794',
                     'Occitan': '#c4a599',
-                    'Catalan': '#797fa1',
+                    'Catalan': '#5d4b3a',
                     'Scots': '#335537',
                     'Welsh' : '#333f44'
                 },
