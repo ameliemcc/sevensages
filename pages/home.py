@@ -1,25 +1,35 @@
 import dash
-
 from dash import Dash, dcc, html, callback
 from dash.dependencies import Input, Output
 import pages.create_manuscripts_map, pages.create_manuscripts_graph, pages.create_prints_map, pages.create_prints_graph
 from pages.create_manuscripts_df import manuscripts_all_map
 from pages.create_prints_df import prints_all_map
+import dash_bootstrap_components as dbc
+
 dash.register_page(__name__, path='/')
 
 layout =(html.Div([
 
     # welcome page
+
+
+
     html.Section([
-        html.Div([
-            dcc.Markdown("""
-            ## __The Seven Sages of Rome in the world__ \n
-            _Inventory and visualisations_ \n
-            Scroll down or go directly to the [manuscripts map](#anchor-1), the [manuscripts language graph](#anchor-2),
-            the [prints map](#anchor-3), or the [prints language graph](#anchor-4). \n
-            Access bibliographical information [here](#anchor-6)
-            """),
-        ], className='card'),
+
+
+
+
+                html.Div([
+                    dcc.Markdown("""
+       ## __The Seven Sages of Rome in the world__ \n
+       _Inventory and visualisations_ \n
+       Scroll down or go directly to the [manuscripts map](#anchor-1), the [manuscripts language graph](#anchor-2),
+       the [prints map](#anchor-3), or the [prints language graph](#anchor-4). \n
+       Access bibliographical information [here](#anchor-6)
+       """),
+                ], className='card'),
+
+
     ], className='section'),
 
     # manuscripts map
@@ -71,7 +81,6 @@ layout =(html.Div([
                 ## __Bibliographical information__ \n
                 The information presented on this website was gathered from :  \n
                 * Campbell, Killis and University of California Libraries. _The Seven Sages of Rome_. Boston, Ginn and company, 1907.
-                * Huws, Daniel. _Medieval Welsh Manuscripts_. Cardiff, University of Cardiff Press, 2000. 
                 * Runte, Hans Rainer, et al. _The Seven Sages of Rome and the Book of Sindbad : an Analytical Bibliography_. Garland, 1984. (Prints reference)
                 * Runte, Hans Rainer. _Li Ystoire de la male marastre : version M of the Roman des sept sages de Rome : a critical edition with an introd., notes, a glossary, five appendices, and a bibliography_. M. Niemeyer, 1974.
                 * Runte, Hans R., and Laurent Brun. “Les Sept Sages de Rome.” [Arlima - Archives de Littérature Du Moyen Âge](<https://www.arlima.net/qt/sept_sages_de_rome.html>), 12 Nov. 2021.

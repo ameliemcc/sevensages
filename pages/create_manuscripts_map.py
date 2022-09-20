@@ -96,7 +96,7 @@ def update_figure(selected_year):
         size=filtered_df["scale"],
         size_max=max((filtered_df['count'])*2),
         projection='equirectangular',
-        hover_data={'scale': False, 'count': True},
+        hover_data={'scale': False, 'count': True, 'lati': False, 'longi': False, 'language': False},
         color_discrete_sequence = ['#a1797f'],
         labels={"count": "Count"},
         text=filtered_df['language']

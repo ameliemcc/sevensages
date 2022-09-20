@@ -44,7 +44,7 @@ fig_prints_graph = px.histogram(
         'Occitan': '#c4a599'
     },
     hover_data={'language': True, 'date_mean': True},
-    labels={"language": "Language", "date_mean": "Dates", "count": "Count"}
+    labels={"language": "Language", "date_mean": "Dates", "Count": "Count"}
 )
 
 

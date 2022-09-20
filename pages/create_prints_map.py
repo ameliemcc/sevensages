@@ -59,8 +59,8 @@ layout = html.Div([
 
         ], className='graph_container'),
 
-all_data_diffq = (df_prints["count"].max() - df_prints["count"].min()) / 11 + 1
-df_prints["scale"] = (df_prints["count"] - df_prints["count"].min()) + 1 / all_data_diffq
+all_data_diffq = (df_prints["Count"].max() - df_prints["Count"].min()) / 11 + 1
+df_prints["scale"] = (df_prints["Count"] - df_prints["Count"].min()) + 1 / all_data_diffq
 
 
 @callback(
@@ -69,8 +69,8 @@ df_prints["scale"] = (df_prints["count"] - df_prints["count"].min()) + 1 / all_d
 def update_figure(selected_year):
     filtered_df = (df_prints.loc[df_prints['century'] == selected_year])
     # create a scale column for the bubbles
-    #all_data_diffq = (filtered_df["count"].max() - filtered_df["count"].min()) / 11 + 1
-    #filtered_df["scale"] = (filtered_df["count"] - filtered_df["count"].min()) + 1 / all_data_diffq
+    #all_data_diffq = (filtered_df["Count"].max() - filtered_df["Count"].min()) / 11 + 1
+    #filtered_df["scale"] = (filtered_df["Count"] - filtered_df["Count"].min()) + 1 / all_data_diffq
    # filtered_df["scale"] = df_prints["scale"]
 
     fig = px.scatter_geo(
@@ -81,8 +81,8 @@ def update_figure(selected_year):
         size=filtered_df['scale'],
         size_max=11,
         projection='equirectangular',
-        hover_data={'scale': False, 'print_town': False, 'lati': False, 'longi':False, 'count':True},
-        labels = {"count" : "Count"},
+        hover_data={'scale': False, 'print_town': False, 'lati': False, 'longi':False, 'Count':True},
+        labels = {"Count" : "Count"},
         color_discrete_sequence=['#a1797f'],
     )
 

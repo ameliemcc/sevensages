@@ -43,7 +43,7 @@ prints_all_map['century'] = pd.to_numeric(prints_all_map['century']).astype(floa
 # make a new dataframe in which the towns are counted by century
 df_prints = (prints_all_map['print_town'].groupby(prints_all_map['century'])
         .value_counts()
-        .reset_index(name='count'))
+        .reset_index(name='Count'))
 
 df_prints = df_prints.set_index('print_town', drop = False)
 df_prints.index.names = ['index']

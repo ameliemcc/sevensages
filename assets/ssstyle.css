@@ -419,6 +419,7 @@ a:visited:hover {
     left : 3%;
     top: 0%;
     width: 28%;
+    overflow: auto;
    /* display: block;
 
 
@@ -442,6 +443,7 @@ a:visited:hover {
     text-align: justify;
     text-justify: inter-character;
     display: block;
+    overflow: auto;
 }
 
 .text_container{
