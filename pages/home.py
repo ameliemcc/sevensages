@@ -62,16 +62,6 @@ layout =(html.Div([
         ]),
     ], className='section'),
 
-    # graph maker
-    html.Section([
-        html.A(id='anchor-5'),
-        html.Div([
-           # html.A(html.Button("Upload Excel sheet and create your own print visualisations", id="btn_print"), href='/printsgraphmaker'),
-
-        ], className='card'),
-        #graph_maker.layout
-
-    ], className='section'),
 
     # end page
     html.Section([
