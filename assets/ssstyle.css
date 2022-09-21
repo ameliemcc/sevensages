@@ -413,7 +413,8 @@ a:visited:hover {
 .buttons_style {
     /*display: flex;  if removed; no middle text
     height: 100%;*/
-        height: 50%;
+        height: 100%;
+    padding-bottom: 10px;
     background-color: #c4a599;
     position: absolute;
     /*margin: auto;*/
