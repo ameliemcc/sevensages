@@ -18,7 +18,7 @@ prints_all_map['date_end'].replace(' ', np.nan, inplace=True)
 prints_all_map['lat'].replace(' ', np.nan, inplace=True)
 
 # remove whitespaces where necessary
-prints_all_map['print_town'].str.strip()
+prints_all_map['print_town'].str.strip(' ')
 
 # drop rows which don't have a value for date_start
 prints_all_map.dropna(subset=['date_start'], inplace=True)
