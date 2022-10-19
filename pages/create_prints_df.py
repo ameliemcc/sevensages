@@ -2,31 +2,27 @@ import pandas as pd
 import numpy as np
 
 # Download the csv file from GitHub account
-
 prints_url = "https://raw.githubusercontent.com/ameliemcc/sevensages/main/datacsvfiles/complete_prints.csv"
-prints_all = pd.read_csv(prints_url, sep=';', skipinitialspace = True)
+prints_all = pd.read_csv(prints_url, sep=';', skipinitialspace=True)
 # make a copy of the full dataframe, just in case we need it again
 prints_all_map = prints_all
-
-#set index to town name
-prints_all_map = prints_all_map.set_index('print_town', drop = False)
-prints_all_map.index.names = ['index']
-
-# replace empty date spaces with nan
-prints_all_map['date_start'].replace(' ', np.nan, inplace=True)
-prints_all_map['date_end'].replace(' ', np.nan, inplace=True)
-prints_all_map['lat'].replace(' ', np.nan, inplace=True)
 
 # remove whitespaces where necessary
 prints_all_map['print_town'].str.strip(' ')
 
-# drop rows which don't have a value for date_start
+#set index to town name
+prints_all_map = prints_all_map.set_index('print_town', drop=False)
+prints_all_map.index.names = ['index']
+
+# replace empty spaces with nan
+prints_all_map['date_start'].replace(' ', np.nan, inplace=True)
+prints_all_map['date_end'].replace(' ', np.nan, inplace=True)
+prints_all_map['lat'].replace(' ', np.nan, inplace=True)
+
+# drop rows which are missing an important value
 prints_all_map.dropna(subset=['date_start'], inplace=True)
-
 prints_all_map.dropna(subset=['language'], inplace=True)
-
-# drop rows which don't have a value for lat
-#prints_all_map.dropna(subset=['lat'], inplace=True)
+prints_all_map.dropna(subset=['lat'], inplace=True)
 
 # if no value for date_end, give it the same as date_start
 prints_all_map['date_end'] = pd.to_numeric(prints_all_map['date_end']).fillna(prints_all_map['date_start']).astype(float)
