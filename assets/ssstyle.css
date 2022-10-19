@@ -135,10 +135,13 @@ a:visited:hover {
     position: absolute;
     /*  card in the middle
      margin-left: 0;
-    margin-right: auto;*/
+    margin-right: auto;
+        margin: auto;*/
     left: 3%;
+    right: 3%;
+    top: 10%;
     bottom: 0%;
-    margin: auto;
+
     overflow: auto;
     font-family: Helvetica, Arial, sans-serif;
     font-size: 20px;
