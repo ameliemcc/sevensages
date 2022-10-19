@@ -131,7 +131,7 @@ a:visited:hover {
     display: block; /* if removed; no middle text  */
     /*justify-content: center;  puts text in the middle of the card horizontally  */
     width : 55vw;
-    height: 70vh;
+    height: 65vh;
     position: absolute;
     /*  card in the middle
     margin-right: auto;
@@ -441,7 +441,7 @@ a:visited:hover {
     position: absolute;
     left: 3%;
     width : 60%;
-    height: 30%;
+    height: 35vh;
     top: 0%;
     font-size: 20px;
     text-align: justify;
