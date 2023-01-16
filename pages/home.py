@@ -12,14 +12,7 @@ dash.register_page(__name__, path='/')
 layout =(html.Div([
 
     # welcome page
-
-
-
     html.Section([
-
-
-
-
                 html.Div([
                     dcc.Markdown("""
        ## __The Seven Sages of Rome in the world__ \n
